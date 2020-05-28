@@ -1,0 +1,1 @@
+while true; do summon -p summon-conjur -f /config/secrets.yaml sh -c "for i in \$(cat /config/secrets.yaml | awk '{print \$1}' | tr -d :); do printenv \$i > /secrets/secret-\$i; echo 'Secret' \$i 'is grabbed'; done"; sleep $TIMEOUT; done
